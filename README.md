@@ -31,7 +31,7 @@ Example for POST request :
     "username":"jdoe123",
     "name":"John Doe",
     "dob":"01/01/2000"
-}
+   }
     ```
     <br>
 
