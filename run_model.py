@@ -34,7 +34,16 @@ def handle_add_members():
  
     response = jsonify({"status": status_response,"data":"No data"})
     return response
+@bp.route("/delete_user",methods=["DELETE"])
+def handle_delete_members():
+    jn=request.json 
+    userData = const.mydb['userData']
+    search_response=userData.find_one({'username':jn['username']})
+    if search_response:
+        status_response = userData.delete_one({'username' : jn['username']})
+        if status_response:
+            return jsonify({"status": "Success","data":"No data"})
+        else:
+            return jsonify({"status": "Failure","data":"No data"})
 
-
-
-
+    return jsonify({"status": "Failure","data":"No data"})
